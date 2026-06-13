@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": [],
+    // DOM lib is for *types only* (fetch/Headers/URLSearchParams, available in
+    // both browsers and Node 18+). The package uses no DOM at runtime and never
+    // touches `window` — it stays headless and platform-agnostic.
+    "lib": ["ES2022", "DOM", "DOM.Iterable"]
+  },
+  "include": ["src/**/*"]
+}

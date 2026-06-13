@@ -1,0 +1,24 @@
+{
+  "name": "mini-timesheets",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "postinstall": "pnpm --filter @mini/shared build",
+    "build": "pnpm -r --filter \"./packages/*\" run build",
+    "dev": "pnpm --filter @mini/shared build && pnpm -r --parallel --filter \"./apps/*\" run dev",
+    "dev:api": "pnpm --filter @mini/api run dev",
+    "dev:web": "pnpm --filter @mini/web run dev",
+    "db:migrate": "pnpm --filter @mini/api run db:migrate",
+    "db:seed": "pnpm --filter @mini/api run db:seed",
+    "db:reset": "pnpm --filter @mini/api run db:reset",
+    "test": "pnpm -r run test",
+    "typecheck": "pnpm -r run typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
